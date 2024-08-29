@@ -52,19 +52,19 @@ Here are the steps or targets of our workflow:
 
 ```{r, eval=FALSE}
   # Air temperature raw data
-  tar_target(file_air, "data/ntl_airtemp.csv", format = "file"),
+  tar_target(file_air, "data/ntl_airtemp.csv", format = "file")
   # Lake ice cover raw data
-  tar_target(file_ice, "data/ntl_icecover.csv", format = "file"),
+  tar_target(file_ice, "data/ntl_icecover.csv", format = "file")
   # Reading the air temp data
-  tar_target(data_air, get_data(file_air)),
+  tar_target(data_air, get_data(file_air))
   # Reading the ice cover data
-  tar_target(data_ice, get_data(file_ice)),
+  tar_target(data_ice, get_data(file_ice))
   # Computing the average air temp from Nov-Apr (freezing season)
-  tar_target(data_avgair, avg_airtemp(data_air)),
+  tar_target(data_avgair, avg_airtemp(data_air))
   # Computing the average ice cover duration across all the lakes
-  tar_target(data_avgice, avg_icecover(data_ice)),
+  tar_target(data_avgice, avg_icecover(data_ice))
   # join the two data sets
-  tar_target(joined, join_ntl(data_avgice, data_avgair)),
+  tar_target(joined, join_ntl(data_avgice, data_avgair))
   # scatter plot + linear regression
   tar_target(scatterplot, scatter_ntl(joined))
 ```
